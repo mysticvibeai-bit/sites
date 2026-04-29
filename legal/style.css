@@ -1,0 +1,167 @@
+/* КиберПапа — юридические документы. Минималистичный мобильно-адаптивный layout. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --text: #1a1a1a;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --link: #1d4ed8;
+  --link-hover: #1e40af;
+  --bg: #ffffff;
+  --bg-soft: #f9fafb;
+  --max-width: 720px;
+  --space: 1.5rem;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h1 {
+  font-size: 1.625rem;
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.1875rem;
+  line-height: 1.35;
+  margin: 2.25rem 0 0.75rem;
+  letter-spacing: -0.005em;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover);
+}
+
+strong {
+  font-weight: 600;
+}
+
+.meta {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0.25rem 0 0.75rem;
+}
+
+nav.docs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+nav.docs a[aria-current="page"] {
+  color: var(--text-muted);
+  text-decoration: none;
+  pointer-events: none;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+footer p {
+  margin: 0 0 0.5rem;
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 1.5rem 1rem 3rem;
+  }
+  body {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border: #2d3340;
+    --link: #93c5fd;
+    --link-hover: #bfdbfe;
+    --bg: #0f1115;
+    --bg-soft: #161922;
+  }
+}
+
+@media print {
+  nav.docs {
+    display: none;
+  }
+  body {
+    font-size: 11pt;
+  }
+}

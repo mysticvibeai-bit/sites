@@ -1,149 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Политика возврата — КиберПапа</title>
-<meta name="description" content="Политика возврата денежных средств сервиса КиберПапа">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Nunito:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-<style>
-  :root { --cream: #FFF4E2; --peach: #FFB979; --tangerine: #FF8A3D; --ember: #E85D2F; --plum: #4A2D5A; --ink: #2B1B3A; --ink-soft: #5A3D6B; --sunshine: #FFD166; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.65; font-weight: 500; -webkit-font-smoothing: antialiased; }
-  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 600; letter-spacing: -0.02em; font-variation-settings: 'SOFT' 100, 'WONK' 0; color: var(--ink); line-height: 1.15; }
-  .topbar { background: rgba(255, 244, 226, 0.92); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid rgba(43, 27, 58, 0.08); position: sticky; top: 0; z-index: 100; }
-  .topbar-inner { max-width: 820px; margin: 0 auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-  .back { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 15px; padding: 8px 16px 8px 12px; border-radius: 100px; transition: all 0.2s; }
-  .back:hover { background: rgba(232, 93, 47, 0.1); color: var(--ember); }
-  .top-logo { display: flex; align-items: center; gap: 8px; font-family: 'Fraunces', serif; font-weight: 700; font-size: 17px; color: var(--ink); text-decoration: none; }
-  .top-logo svg { width: 28px; height: 28px; filter: drop-shadow(0 2px 4px rgba(232, 93, 47, 0.3)); }
-  main { max-width: 820px; margin: 0 auto; padding: 60px 28px 100px; }
-  .doc-eyebrow { display: inline-block; font-weight: 800; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ember); margin-bottom: 16px; }
-  h1 { font-size: clamp(32px, 5vw, 48px); margin-bottom: 20px; }
-  .doc-meta { color: var(--ink-soft); font-size: 14px; padding-bottom: 32px; margin-bottom: 48px; border-bottom: 1px solid rgba(43, 27, 58, 0.12); }
-  .doc-content h2 { font-size: 26px; margin-top: 48px; margin-bottom: 16px; color: var(--ink); }
-  .doc-content h2:first-child { margin-top: 0; }
-  .doc-content h3 { font-size: 19px; margin-top: 28px; margin-bottom: 10px; color: var(--plum); }
-  .doc-content p { margin-bottom: 18px; color: var(--ink); font-size: 16.5px; }
-  .doc-content ul { margin-bottom: 18px; padding-left: 0; list-style: none; }
-  .doc-content ul li { position: relative; padding-left: 24px; margin-bottom: 10px; color: var(--ink); font-size: 16.5px; }
-  .doc-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--ember); font-weight: 800; }
-  .doc-content strong { color: var(--ink); font-weight: 700; }
-  .doc-content a { color: var(--ember); text-decoration: underline; text-underline-offset: 3px; }
-  .callout { background: #FFE9C7; border-left: 4px solid var(--ember); padding: 18px 22px; border-radius: 14px; margin: 28px 0; }
-  .callout p { margin-bottom: 8px; }
-  .callout p:last-child { margin-bottom: 0; }
-  .requisites { background: linear-gradient(145deg, #FFF, #FFE9C7); padding: 28px 32px; border-radius: 20px; margin-top: 48px; border: 1.5px solid rgba(232, 93, 47, 0.2); }
-  .requisites h3 { margin-top: 0; }
-  .requisites ul li::before { content: '·'; font-size: 24px; top: -4px; }
-  .legal-nav { margin-top: 64px; padding: 24px; background: rgba(255, 185, 121, 0.2); border-radius: 20px; }
-  .legal-nav h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ember); margin-bottom: 14px; }
-  .legal-nav-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
-  .legal-nav-list a { background: var(--cream); color: var(--ink); padding: 10px 18px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; border: 1.5px solid rgba(43, 27, 58, 0.1); transition: all 0.2s; }
-  .legal-nav-list a:hover { border-color: var(--ember); color: var(--ember); transform: translateY(-1px); }
-  .legal-nav-list a.current { background: var(--ink); color: var(--cream); border-color: var(--ink); }
-  @media (max-width: 640px) { .topbar-inner { padding: 14px 20px; } .top-logo { font-size: 15px; } .back { font-size: 14px; padding: 6px 12px 6px 10px; } main { padding: 40px 20px 70px; } h1 { font-size: 28px; } .doc-content h2 { font-size: 22px; margin-top: 36px; } .doc-content h3 { font-size: 17px; } .doc-content p, .doc-content ul li { font-size: 15.5px; } .requisites { padding: 22px; } }
-</style>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Политика возврата — КиберПапа</title>
+    <meta name="description" content="Политика возврата средств за услуги сервиса КиберПапа." />
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Политика возврата</h1>
+        <p class="subtitle">
+          Сервис «КиберПапа» — <a href="https://cyberdad.ru">https://cyberdad.ru</a> —
+          <a href="https://t.me/CyberDad_bot">@CyberDad_bot</a>
+        </p>
+        <p class="meta">Дата публикации: 29 апреля 2026 г.</p>
+      </header>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <a href="../index.html" class="back">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      На главную
-    </a>
-    <a href="../index.html" class="top-logo">
-      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <defs><radialGradient id="skinGrad" cx="40%" cy="35%"><stop offset="0%" stop-color="#FFE0C4"/><stop offset="100%" stop-color="#F0B894"/></radialGradient></defs>
-        <circle cx="24" cy="25" r="18" fill="url(#skinGrad)"/>
-        <path d="M8 22 Q7 9 24 9 Q41 9 40 22 Q38 16 33 15 Q28 19 21 18 Q14 17 10 21 Z" fill="#2B1B3A"/>
-        <path d="M11 28 Q11 40 17 43 Q24 45 31 43 Q37 40 37 28 Q33 33 24 33 Q15 33 11 28 Z" fill="#2B1B3A"/>
-        <circle cx="17" cy="26" r="4" fill="none" stroke="#2B1B3A" stroke-width="1.5"/>
-        <circle cx="31" cy="26" r="4" fill="none" stroke="#2B1B3A" stroke-width="1.5"/>
-        <line x1="21" y1="26" x2="27" y2="26" stroke="#2B1B3A" stroke-width="1.5"/>
-        <circle cx="17" cy="26" r="1.3" fill="#2B1B3A"/>
-        <circle cx="31" cy="26" r="1.3" fill="#2B1B3A"/>
-      </svg>
-      КиберПапа
-    </a>
-  </div>
-</div>
+      <section>
+        <h2>4.1. Возврат за подписку</h2>
+        <p>
+          Пользователь вправе отказаться от подписки в любой момент. При отказе в течение первых 3 (трёх)
+          календарных дней с момента оплаты — полный возврат денежных средств. При отказе после 3 дней — подписка
+          остаётся активной до конца оплаченного периода, возврат не производится.
+        </p>
+      </section>
 
-<main>
-  <span class="doc-eyebrow">Правовой документ</span>
-  <h1>Политика возврата денежных средств</h1>
-  <div class="doc-meta">Редакция от 20 апреля 2026 г.</div>
+      <section>
+        <h2>4.2. Возврат за разовые услуги</h2>
+        <p>
+          Разовые услуги (портрет, прогноз, совместимость) считаются полностью оказанными в момент предоставления
+          контента Пользователю. Возврат за оказанную услугу не производится, за исключением технического сбоя,
+          когда контент не был доставлен. В случае сбоя — повторное предоставление услуги или полный возврат на
+          выбор Пользователя.
+        </p>
+      </section>
 
-  <div class="doc-content">
-    <p>Настоящая Политика регулирует порядок возврата денежных средств за услуги сервиса «КиберПапа» (<a href="https://t.me/CyberDad_bot">@CyberDad_bot</a>), оказываемые <strong>ИП Перегудов Александр Сергеевич</strong> (ИНН 540230887160).</p>
+      <section>
+        <h2>4.3. Возврат Киберов</h2>
+        <p>
+          Киберы не подлежат возврату в денежном эквиваленте (п. 3.4
+          <a href="offer.html">Публичной оферты</a>). При техническом сбое, повлёкшем неоказание услуги, оплаченной
+          Киберами — Киберы возвращаются на баланс Пользователя.
+        </p>
+      </section>
 
-    <h2>1. Общие положения</h2>
-    <p>1.1. Услуги сервиса оплачиваются через сервис ЮKassa внутри Telegram-бота.</p>
-    <p>1.2. В соответствии с Законом РФ «О защите прав потребителей» от 07.02.1992 № 2300-1 Заказчик имеет право отказаться от Услуги и потребовать возврата оплаты в случаях, установленных настоящей Политикой.</p>
+      <section>
+        <h2>4.4. Порядок возврата</h2>
+        <p>
+          Для оформления возврата: команда <code>/refund</code> в боте или письмо на
+          <a href="mailto:cyberdad.ru@ya.ru">cyberdad.ru@ya.ru</a>. Срок рассмотрения — до 5 рабочих дней. Возврат
+          средств — тем же способом оплаты, в срок до 10 рабочих дней с момента одобрения заявки.
+        </p>
+      </section>
 
-    <h2>2. Условия возврата</h2>
+      <section>
+        <h2>4.5. Контакты для обращений</h2>
+        <p>
+          E-mail: <a href="mailto:cyberdad.ru@ya.ru">cyberdad.ru@ya.ru</a><br />
+          Telegram-бот: <a href="https://t.me/CyberDad_bot">@CyberDad_bot</a>
+          (команда <code>/refund</code> или <code>/support</code>)<br />
+          Сайт: <a href="https://cyberdad.ru">https://cyberdad.ru</a>
+        </p>
+      </section>
 
-    <h3>2.1. Полный возврат возможен, если:</h3>
-    <ul>
-      <li>с момента оплаты прошло <strong>не более 14 календарных дней</strong>;</li>
-      <li>Заказчик <strong>не воспользовался</strong> платными функциями сервиса (не открыл расширенный портрет, не задал ни одного оплаченного вопроса, не активировал аварийный режим).</li>
-    </ul>
+      <nav class="docs" aria-label="Юридические документы">
+        <a href="terms.html">Пользовательское соглашение</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
+        <a href="offer.html">Публичная оферта</a>
+        <a href="refund.html" aria-current="page">Политика возврата</a>
+      </nav>
 
-    <h3>2.2. Частичный возврат возможен, если:</h3>
-    <ul>
-      <li>Заказчик приобрёл подписку на длительный период (месяц, квартал, год);</li>
-      <li>подписка ещё действует;</li>
-      <li>прошло более 14 дней, но Заказчик желает прекратить подписку досрочно.</li>
-    </ul>
-    <p>Размер возврата рассчитывается пропорционально неиспользованному периоду, за вычетом фактически оказанных услуг и комиссии платёжного сервиса.</p>
-
-    <h3>2.3. Возврат не производится, если:</h3>
-    <ul>
-      <li>Заказчик полностью получил и использовал разовую платную услугу (например, сформирован полный портрет ребёнка или прогноз на год);</li>
-      <li>платный период подписки истёк;</li>
-      <li>возврат запрашивается по причине, связанной с содержанием Услуг (информационный характер ответов бота, методики Human Design / Сюцай / астрологии). Заказчик до оплаты информируется, что Услуги носят информационно-развлекательный характер.</li>
-    </ul>
-
-    <h2>3. Порядок обращения за возвратом</h2>
-    <p>3.1. Для оформления возврата Заказчик направляет обращение на e-mail <a href="mailto:hello@cyberdad.bot">hello@cyberdad.bot</a> или в <a href="https://t.me/CyberDad_bot">@CyberDad_bot</a> с указанием:</p>
-    <ul>
-      <li>Telegram ID или username, с которого производилась оплата;</li>
-      <li>даты и суммы платежа;</li>
-      <li>причины отказа от Услуги.</li>
-    </ul>
-    <p>3.2. Срок рассмотрения обращения — <strong>до 10 рабочих дней</strong> с момента его получения.</p>
-    <p>3.3. В случае одобрения возврат производится <strong>тем же способом</strong>, которым была внесена оплата (на банковскую карту, с которой был произведён платёж через ЮKassa).</p>
-    <p>3.4. Срок фактического зачисления средств на счёт Заказчика зависит от банка Заказчика и может составлять до 10 рабочих дней.</p>
-
-    <h2>4. Отказ в возврате</h2>
-    <p>4.1. Исполнитель вправе отказать в возврате в случаях, указанных в п. 2.3 настоящей Политики, а также при выявлении признаков злоупотребления (многократные оплаты и возвраты, использование сервиса в нарушение Пользовательского соглашения).</p>
-
-    <div class="requisites">
-      <h3>Реквизиты Исполнителя</h3>
-      <ul>
-        <li><strong>ИП Перегудов Александр Сергеевич</strong></li>
-        <li>ИНН: 540230887160</li>
-        <li>ОГРНИП: 311547630500179</li>
-        <li>E-mail: <a href="mailto:hello@cyberdad.bot">hello@cyberdad.bot</a></li>
-        <li>Telegram: <a href="https://t.me/CyberDad_bot">@CyberDad_bot</a></li>
-      </ul>
-    </div>
-
-    <div class="legal-nav">
-      <h4>Другие документы</h4>
-      <ul class="legal-nav-list">
-        <li><a href="../terms.html">Соглашение</a></li>
-        <li><a href="../privacy.html">Конфиденциальность</a></li>
-        <li><a href="../offer.html">Оферта</a></li>
-        <li><a href="../refund.html" class="current">Возврат</a></li>
-      </ul>
-    </div>
-  </div>
-</main>
-
-</body>
+      <footer>
+        <p>© 2026 ИП Перегудов А. С. «КиберПапа». Все права защищены.</p>
+      </footer>
+    </main>
+  </body>
 </html>
